@@ -79,4 +79,38 @@ describe('Kickstartethereum', () => {
         assert(error)
       }
     })
+
+  it('manager can make a payment request', async () => {
+    await campaign.methods.createRequest(
+      'Test',
+      '1000',
+      accounts[2]
+    ).send({ from: accounts[0], gas: '1000000' })
+
+    const [
+      description,
+      amount,
+      recipient,
+      complete,
+      approvalsCount
+    ] = Object.values(await campaign.methods.requests(0).call())
+    assert.equal(description, 'Test')
+    assert.equal(amount, '1000')
+    assert.equal(recipient, accounts[2])
+    assert(!complete)
+    assert.equal(approvalsCount, 0)
+  })
+
+  it('fails to create payment request if not manager', async () => {
+    try {
+      await campaign.methods.createRequest(
+        'Test',
+        '1000',
+        accounts[2]
+      ).send({ from: accounts[1], gas: '1000000' })
+      assert(false)
+    } catch (e) {
+      assert(e)
+    }
+  })
 })
