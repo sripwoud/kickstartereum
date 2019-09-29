@@ -113,4 +113,42 @@ describe('Kickstartethereum', () => {
       assert(e)
     }
   })
+
+  it('processes requests', async () => {
+    await campaign.methods.contribute().send({
+      from: accounts[1],
+      value: web3.utils.toWei('10', 'ether')
+    })
+    await campaign.methods.createRequest(
+      'Buy stuff',
+      web3.utils.toWei('5', 'ether'),
+      accounts[2]
+    ).send({ from: accounts[0], gas: '1000000' })
+
+    // fail to finalize if request not yet approved
+    try {
+      await campaign.methods.finalizeRequest(0).send({
+        from: accounts[0],
+        gas: '1000000'
+      })
+      assert(false)
+    } catch (e) {
+      assert(e)
+    }
+
+    await campaign.methods.approveRequest(0).send({
+      from: accounts[1],
+      gas: '1000000'
+    })
+
+    const balanceBefore = await web3.eth.getBalance(accounts[2])
+    await campaign.methods.finalizeRequest(0).send({
+      from: accounts[0],
+      gas: '1000000'
+    })
+    const balanceAfter = await web3.eth.getBalance(accounts[2])
+    const [,,, complete] = Object.values(await campaign.methods.requests(0).call())
+    assert(complete, 'This request should be now completed.')
+    assert(+balanceBefore < +balanceAfter)
+  })
 })
