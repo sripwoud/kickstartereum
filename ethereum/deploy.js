@@ -1,6 +1,7 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 const Web3 = require('web3')
-const fs = require('fs')
+const fs = require('fs-extra')
+const path = require('path')
 
 const { abi, evm: { bytecode: { object: bytecode } } } = require('./build/CampaignFactory.json')
 
@@ -23,6 +24,7 @@ const deploy = async () => {
       .send({ from: accounts[0], gas: '1800000' })
 
     console.log('Contract deployed to', factory.options.address)
+    fs.outputFile(path.resolve(__dirname, 'ADDRESS'), factory.options.address)
   } catch (e) {
     console.log('Failed to deploy:', e.message)
   }
