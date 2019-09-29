@@ -29,8 +29,54 @@ beforeEach(async () => {
 })
 
 describe('Kickstartethereum', () => {
-  it('deploys a factory and a campaign contracts', () => {
+  it('deploys factory and campaign contracts', () => {
     assert.ok(factory.options.address)
     assert.ok(campaign.options.address)
   })
+
+  it('marks creator of new campaign as funder', async () => {
+    assert.equal(
+      await campaign.methods.funder().call(),
+      accounts[0],
+      'Account used for campaign contract deployment should be the funder'
+    )
+  })
+
+  it('sets minimum contribution', async () => {
+    assert.equal(
+      await campaign.methods.minimumContribution().call(),
+      +100,
+      'minimum contribution amount not properly set'
+    )
+  })
+
+  it('people can contribute money and be listed as backers', async () => {
+    await campaign.methods.contribute().send({
+      from: accounts[1],
+      value: web3.utils.toWei('1', 'ether')
+    })
+    assert(
+      await campaign.methods.backers(accounts[1]).call(),
+      'Second account should be listed as backer'
+    )
+    assert.equal(
+      await web3.eth.getBalance(campaign.options.address),
+      web3.utils.toWei('1', 'ether'),
+      'Wrong campaign contract balance'
+    )
+  })
+
+  it(
+    'requires a minimum amount of contribution to be listed as backer',
+    async () => {
+      try {
+        await campaign.methods.contribute().send({
+          from: accounts[2],
+          value: '50' // < 100 wei
+        })
+        assert(false)
+      } catch (error) {
+        assert(error)
+      }
+    })
 })
