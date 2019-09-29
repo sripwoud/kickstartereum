@@ -1,0 +1,27 @@
+{
+  "name": "kickstartethereum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6ry0u/kickstartethereum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6ry0u/kickstartethereum/issues"
+  },
+  "homepage": "https://github.com/6ry0u/kickstartethereum#readme",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "ganache-cli": "^6.7.0",
+    "mocha": "^6.2.0",
+    "solc": "^0.5.11",
+    "web3": "^1.2.1"
+  }
+}
