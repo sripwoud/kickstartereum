@@ -29,7 +29,7 @@ const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts['Campai
 fs.ensureDirSync(buildPath)
 // loop over output object and export contracts
 for (const contract in output) {
-  // creates an output JSON file from an object
+  // create an output JSON file from an object
   fs.outputJsonSync(
     path.resolve(buildPath, `${contract}.json`),
     output[contract]
