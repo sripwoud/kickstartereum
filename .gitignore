@@ -1,4 +1,5 @@
 .mnemonic
 .infuraKey
 node_modules/
+.next/
 ADDRESS
