@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/6ry0u/kickstartethereum#readme",
   "dependencies": {
+    "@truffle/hdwallet-provider": "1.0.18",
     "fs-extra": "^8.1.0",
     "ganache-cli": "^6.7.0",
     "mocha": "^6.2.0",
