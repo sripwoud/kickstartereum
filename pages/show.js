@@ -1,7 +1,11 @@
 import React from 'react'
 
+import Layout from '../components/Layout'
+
 export default () => {
   return (
-    <h1>Show page</h1>
+    <Layout>
+      <h2>Show page</h2>
+    </Layout>
   )
 }
