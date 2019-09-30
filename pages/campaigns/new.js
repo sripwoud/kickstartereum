@@ -8,11 +8,13 @@ import Layout from '../../components/Layout'
 class CampaignNew extends Component {
   state = {
     minimumContribution: '',
-    errorMessage: ''
+    errorMessage: '',
+    loading: false
   }
   
   onClick = async (event) => {
     event.preventDefault()
+    this.setState({ loading: true, errorMessage: '' })
     const accounts = await web3.eth.getAccounts()
     try {
       await factory.methods
@@ -21,6 +23,7 @@ class CampaignNew extends Component {
     } catch (error) {
       this.setState({ errorMessage: error.message })
     }
+    this.setState({ loading: false })
   }
   
   render () {
@@ -45,7 +48,7 @@ class CampaignNew extends Component {
             header='Ooops'
             content={this.state.errorMessage}
           />
-          <Button primary>Create</Button>
+          <Button primary loading={this.state.loading}>Create</Button>
         </Form>
       </Layout>
     )
