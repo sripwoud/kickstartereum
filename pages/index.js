@@ -6,7 +6,16 @@ import Layout from '../components/Layout'
 
 class CampaignIndex extends Component {
   static async getInitialProps () {
-    const campaigns = await instance.methods.getDeployedCampaigns().call()
+    let campaigns
+    try {
+      campaigns = await instance.methods.getDeployedCampaigns().call()
+    } catch (error) {
+      // For  testing with fake data
+      campaigns = [
+        '123',
+        '456'
+      ]
+    }
     return { campaigns }
   }
 
