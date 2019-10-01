@@ -91,6 +91,26 @@ contract Campaign {
         request.recipient.transfer(request.amount);
     }
 
+    function getSummary() public view returns (
+      uint,
+      uint,
+      uint,
+      uint,
+      address
+    )
+    {
+      return (
+        minimumContribution,
+        address(this).balance,
+        requests.length,
+        backersCount,
+        funder
+      );
+    }
+
+    function getRequestsCount() public view returns (uint) {
+      return requests.length;
+    }
 
 
 }
