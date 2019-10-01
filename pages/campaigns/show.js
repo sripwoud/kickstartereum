@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 
 import Layout from '../../components/Layout'
+import ContributeForm from '../../components/ContributeForm'
 import Campaign from '../../ethereum/campaign'
 
 // TODO: Redeploy contract!!
@@ -49,23 +50,26 @@ class CampaignShow extends Component {
         header: '0xwererewr564we4r56we4r56w456er46w4er6',
         meta: 'Address of funder',
         description:
-          'Funder created this campaign and can create payment requests.',
+          'Created this campaign and can create payment requests.',
         style: { overflowWrap: 'break-word'}
       },
       {
         header: balance,
         meta: 'Balance (wei)',
-        description: 'Funds available'
+        description: 'Funds available  = (received - spent by requests)'
       },
       {
         header: requestCount,
         meta: 'Requests',
-        description: 'Payment requests created by the funded'
+        description:
+        `Payment requests created by the funder.
+        Requests tries to spend money received by the campaign.
+        A majority of backers must approve this request before it can be performed.`
       },
       {
         header: minimumContribution,
-        meta: 'minimum contribution amount (wei)',
-        description: 'Amount required to become a backer'
+        meta: 'minimum contribution (wei)',
+        description: 'Minimum amount to contribute to become a backer'
       },
       {
         header: backersCount,
@@ -81,7 +85,14 @@ class CampaignShow extends Component {
     return (
       <Layout>
         <h2>Show Campaign</h2>
-        {this.renderCards()}
+        <Grid>
+          <Grid.Column width={10}>
+            {this.renderCards()}
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <ContributeForm />
+          </Grid.Column>
+        </Grid>
       </Layout>
     )
   }
