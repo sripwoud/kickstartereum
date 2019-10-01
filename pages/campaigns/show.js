@@ -22,6 +22,7 @@ class CampaignShow extends Component {
       }
     }
     return {
+      address: props.query.address,
       minimumContribution: summary['0'],
       balance: summary[1],
       requestCount: summary[2],
@@ -81,7 +82,6 @@ class CampaignShow extends Component {
     return <Card.Group items={items} />
   }
   render () {
-    console.log(this.props.summary)
     return (
       <Layout>
         <h2>Show Campaign</h2>
@@ -90,7 +90,7 @@ class CampaignShow extends Component {
             {this.renderCards()}
           </Grid.Column>
           <Grid.Column width={6}>
-            <ContributeForm />
+            <ContributeForm address={this.props.address}/>
           </Grid.Column>
         </Grid>
       </Layout>
