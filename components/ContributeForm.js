@@ -3,6 +3,7 @@ import { Form, Input, Message, Button } from 'semantic-ui-react'
 
 import Campaign from '../ethereum/campaign'
 import web3 from '../ethereum/web3'
+import { Router} from '../routes'
 
 class ContributeForm extends Component {
   state = {
@@ -23,6 +24,8 @@ class ContributeForm extends Component {
     } catch (error) {
       this.setState({ errorMessage: error.message })
     }
+    // refresh page
+    Router.replaceRoute(`/campaigns/${this.props.address}`)
   }
 
   render () {
