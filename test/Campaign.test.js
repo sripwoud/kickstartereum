@@ -151,4 +151,22 @@ describe('Kickstartethereum', () => {
     assert(complete, 'This request should be now completed.')
     assert(+balanceBefore < +balanceAfter)
   })
+
+  it('can get campaign summary', async () => {
+    const summary = await campaign.methods.getSummary().call()
+    assert.equal(
+      Object.values(summary).length,
+      5,
+      'Should have returned summary of 5 values'
+  )
+  })
+
+  it('can get requests count', async () => {
+    const count = await campaign.methods.getRequestsCount().call()
+    assert.equal(
+      count,
+      +0,
+      'Should be 0 requests created'
+    )
+  })
 })
