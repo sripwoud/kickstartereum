@@ -12,7 +12,7 @@ class CampaignNew extends Component {
     errorMessage: '',
     loading: false
   }
-  
+
   onClick = async (event) => {
     event.preventDefault()
     this.setState({ loading: true, errorMessage: '' })
@@ -29,7 +29,7 @@ class CampaignNew extends Component {
     }
     this.setState({ loading: false })
   }
-  
+
   render () {
     return (
       <Layout>
@@ -48,7 +48,7 @@ class CampaignNew extends Component {
             />
           </Form.Field>
           <Message
-            error 
+            error
             header='Ooops'
             content={this.state.errorMessage}
           />
