@@ -2,15 +2,6 @@ import React from 'react'
 import { Segment, Divider } from 'semantic-ui-react'
 import Emoji from 'a11y-react-emoji'
 
-const footerStyle = {
-  position: 'fixed',
-  left: '0',
-  bottom: '0',
-  width: '100%',
-  textAlign: 'center',
-  marginBottom: '10px'
-}
-
 export default () => {
   return (
     <Divider horizontal>
