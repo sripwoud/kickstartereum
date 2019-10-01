@@ -27,9 +27,9 @@ const deploy = async () => {
       'utf8',
       (err, data) => {
         if (!err) {
-          const splitArray = data.split('\n')
-          if (splitArray.length === 4) {
-            splitArray.splice(2, 2)
+          const splitArray = data.trim().split('\n')
+          if (splitArray.length === 3) {
+            splitArray.splice(2, 1)
           }
           splitArray.push(`ADDRESS=${factory.options.address}`)
           const result = splitArray.join('\n')
