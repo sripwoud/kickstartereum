@@ -1,5 +1,5 @@
 import react, { Component } from 'react'
-import { Button } from 'sematic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 import { Link } from '../../../routes'
 import Layout from '../../../components/Layout'
