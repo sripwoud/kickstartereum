@@ -1,5 +1,5 @@
 {
-  "name": "kickstartethereum",
+  "name": "airCrowd",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/6ry0u/kickstartethereum.git"
+    "url": "git+https://github.com/6ry0u/airCrowd.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/6ry0u/kickstartethereum/issues"
+    "url": "https://github.com/6ry0u/airCrowd/issues"
   },
-  "homepage": "https://github.com/6ry0u/kickstartethereum#readme",
+  "homepage": "https://github.com/6ry0u/airCrowd#readme",
   "dependencies": {
     "@truffle/hdwallet-provider": "1.0.18",
     "a11y-react-emoji": "^1.1.1",
