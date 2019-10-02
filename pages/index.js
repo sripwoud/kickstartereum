@@ -8,7 +8,12 @@ import { Link } from '../routes'
 class CampaignIndex extends Component {
   static async getInitialProps () {
     let campaigns
-    campaigns = await instance.methods.getDeployedCampaigns().call()
+    try {
+      campaigns = await instance.methods.getDeployedCampaigns().call()
+    } catch (error) {
+      // fake data in case call tx fails
+      campaigns = ['132', '789']
+    }
     return { campaigns }
   }
 

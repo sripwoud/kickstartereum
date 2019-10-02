@@ -9,15 +9,26 @@ import { Link } from '../../routes'
 // TODO: Redeploy contract!!
 class CampaignShow extends Component {
   static async getInitialProps (props) {
-    const campaign = Campaign(props.query.address)
-    const summary = await campaign.methods.getSummary().call()
-    return {
-      address: props.query.address,
-      minimumContribution: summary[0],
-      balance: summary[1],
-      requestCount: summary[2],
-      backersCount: summary[3],
-      funder: summary[4]
+    try {
+      const campaign = Campaign(props.query.address)
+      const summary = await campaign.methods.getSummary().call()
+      return {
+        address: props.query.address,
+        minimumContribution: summary[0],
+        balance: summary[1],
+        requestCount: summary[2],
+        backersCount: summary[3],
+        funder: summary[4]
+      }
+    } catch (error) {
+      return {
+        address: 'Fake address',
+        minimumContribution: '1000',
+        balance: '20000000',
+        requestCount: '2',
+        backersCount: '4',
+        funder: '6|2`/0(_)'
+      }
     }
   }
 
