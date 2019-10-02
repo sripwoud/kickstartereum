@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Message, Input } from 'semantic-ui-react'
+import { Form, Button, Message, Input, Icon } from 'semantic-ui-react'
 
 import Campaign from '../../../ethereum/campaign'
 import web3 from '../../../ethereum/web3'
@@ -40,6 +40,12 @@ class NewRequest extends Component {
   render () {
     return(
       <Layout>
+        <Link route={`/campaigns/${this.props.address}/requests`}>
+          <a>
+            <Icon name='left arrow' />
+            Back
+          </a>
+        </Link>
         <h2>Create a new payment request</h2>
         <Form
           onSubmit={this.onSubmit}
