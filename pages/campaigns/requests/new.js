@@ -24,6 +24,7 @@ class NewRequest extends Component {
     event.preventDefault()
     const campaign = await Campaign(this.props.address)
     const { description, value, recipient } = this.state
+    console.log(value)
     this.setState({ loading: true, errorMessage: '' })
     try {
       const accounts = await web3.eth.getAccounts()
@@ -77,7 +78,7 @@ class NewRequest extends Component {
             header='Ooops'
             content={this.state.errorMessage}
           />
-          <Button primary>Create</Button>
+          <Button primary loading={this.state.loading}>Create</Button>
         </Form>
       </Layout>
     )
