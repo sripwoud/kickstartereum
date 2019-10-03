@@ -20,7 +20,7 @@ class RequestsIndex extends Component {
         })
     )
 
-    return { address, requests, backersCount }
+    return { address, requests, backersCount, requestsCount }
   }
 
   renderRows () {
@@ -44,7 +44,7 @@ class RequestsIndex extends Component {
         <h2>Requests</h2>
         <Link route={`/campaigns/${this.props.address}/requests/new`}>
           <a>
-            <Button primary>
+            <Button primary floated='right' style={{ marginBottom: 10 }}>
               Add request
             </Button>
           </a>
@@ -59,13 +59,13 @@ class RequestsIndex extends Component {
               <HeaderCell>Approvals</HeaderCell>
               <HeaderCell>Approve</HeaderCell>
               <HeaderCell>Finalize</HeaderCell>
-              <HeaderCell>Complete</HeaderCell>
             </Row>
           </Header>
           <Body>
             {this.renderRows()}
           </Body>
         </Table>
+        <div>Total: {this.props.requestsCount} payment requests.</div>
       </Layout>
     )
   }

@@ -24,7 +24,6 @@ class NewRequest extends Component {
     event.preventDefault()
     const campaign = await Campaign(this.props.address)
     const { description, value, recipient } = this.state
-    console.log(value)
     this.setState({ loading: true, errorMessage: '' })
     try {
       const accounts = await web3.eth.getAccounts()
