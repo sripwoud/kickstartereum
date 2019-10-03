@@ -10,16 +10,17 @@ class RequestsIndex extends Component {
   static async getInitialProps (props) {
     const { address } = props.query
     const campaign = Campaign(address)
-    const count = await campaign.methods.getRequestsCount().call()
+    const requestsCount = await campaign.methods.getRequestsCount().call()
+    const backersCount = await campaign.methods.backersCount().call()
     const requests = await Promise.all(
-      Array(+count)
+      Array(+requestsCount)
         .fill()
         .map((el, index) => {
-        return campaign.methods.requests(index).call()
+          return campaign.methods.requests(index).call()
         })
     )
 
-    return { address }
+    return { address, requests, backersCount }
   }
 
   renderRows () {
@@ -28,7 +29,9 @@ class RequestsIndex extends Component {
         <RequestRow
           key={index}
           request={request}
-          address={address}
+          address={this.props.address}
+          id={index}
+          backersCount={this.props.backersCount}
         />
       )
     })
@@ -48,14 +51,15 @@ class RequestsIndex extends Component {
         </Link>
         <Table>
           <Header>
-            <Row>
+            <Row textAlign='center'>
               <HeaderCell>ID</HeaderCell>
               <HeaderCell>Description</HeaderCell>
-              <HeaderCell>Amount</HeaderCell>
+              <HeaderCell>Amount (ETH)</HeaderCell>
               <HeaderCell>Recipient</HeaderCell>
-              <HeaderCell>Approval Count</HeaderCell>
+              <HeaderCell>Approvals</HeaderCell>
               <HeaderCell>Approve</HeaderCell>
               <HeaderCell>Finalize</HeaderCell>
+              <HeaderCell>Complete</HeaderCell>
             </Row>
           </Header>
           <Body>
