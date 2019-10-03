@@ -1,6 +1,5 @@
 import React from 'react'
-import { Segment, Divider } from 'semantic-ui-react'
-import Emoji from 'a11y-react-emoji'
+import { Segment, Divider, Icon } from 'semantic-ui-react'
 
 export default () => {
   return (
@@ -9,23 +8,18 @@ export default () => {
         <p>
       Developed on
           <a href='https://www.ethereum.org'>
-            <Emoji symbol=' 💎 ' label='gem ethereum' />
+            <Icon name='ethereum' />
           </a>
-      with
-          <Emoji symbol=' 💕 ' label='love' />
+      with {' '}
+          <Icon name='like' color='red' padding='10px' />
       by
           <a href='https://github.com/6ry0u'>
-            {' '}@6ry0u
+            @6ry0u
           </a>
         </p>
         <p>
           <a href='https://github.com/6ry0u/airCrowd'>
-            <img
-              src='../static/GitHub-Mark-32px.png'
-              alt='GitHub'
-              width='20'
-              height='20'
-            />
+            <Icon name='github' size='large' color='black' />
           </a>
         </p>
       </Segment>
