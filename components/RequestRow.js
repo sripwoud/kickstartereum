@@ -27,29 +27,31 @@ class RequestRow extends Component {
       request: { description, amount, recipient, approvalsCount, complete },
       backersCount
     } = this.props
+    const readyToFinalize = approvalsCount > backersCount / 2
     return (
-      <Row>
+      <Row disabled={complete} positive={readyToFinalize && !complete}>
         <Cell>{id}</Cell>
         <Cell>{description}</Cell>
         <Cell>{web3.utils.fromWei(amount, 'ether')}</Cell>
         <Cell>{recipient}</Cell>
         <Cell>{approvalsCount}/{backersCount}</Cell>
         <Cell>
-          <Button
-            basic
-            color='green'
-            onClick={this.onApprove}
-            disabled={complete}>
-            Approve
-          </Button>
+          { complete ? null : (
+            <Button basic color='green' onClick={this.onApprove}>
+              Approve
+            </Button>
+          )}
         </Cell>
         <Cell>
-          <Button positive onClick={this.onFinalize} disabled={complete}>
-            Finalize
-          </Button>
-        </Cell>
-        <Cell>
-          <Icon name={`toggle ${complete ? 'on' : 'off'}`} size='large'/>
+          { complete ? null : (
+            <Button
+              positive
+              onClick={this.onFinalize}
+              disabled={!readyToFinalize}
+            >
+              Finalize
+            </Button>
+          )}
         </Cell>
       </Row>
     )
