@@ -1,5 +1,4 @@
-# AirCrowd
-## Introduction
+# Kicksartereum: Kickstarter on Ethereum
 ## Getting started
 0. Clone or download this repository
 0. Install dependencies: `/aircrowd $ npm i`
