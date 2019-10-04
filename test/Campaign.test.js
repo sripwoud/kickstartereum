@@ -17,25 +17,31 @@ beforeEach(async () => {
     .send({ from: accounts[0], gas: '1800000' })
 
   // create one campaign
-  await factory.methods.createCampaign('100').send({
+  await factory.methods.createCampaign('100', 'Test campaign').send({
     from: accounts[0],
     gas: '1000000'
-  });
+  })
   // get campaign contract address
-  [campaignAddress] = await factory.methods.getDeployedCampaigns().call()
+  const { projectAddress } = await factory.methods.projects(0).call()
 
   // create instance of already deployed campaign contract
-  campaign = await new web3.eth.Contract(compiledCampaign.abi, campaignAddress)
+  campaign = await new web3.eth.Contract(compiledCampaign.abi, projectAddress)
 })
 
 describe('Kickstartethereum', () => {
-  it('deploys factory and campaign contracts', () => {
+  it('deploys factory and campaign contracts', async () => {
     assert.ok(factory.options.address)
+    const { title } = await factory.methods.projects(0).call()
     assert.ok(campaign.options.address)
+    assert.strictEqual(
+      title,
+      'Test campaign',
+      'Wrong campaign title'
+    )
   })
 
   it('marks creator of new campaign as funder', async () => {
-    assert.equal(
+    assert.strictEqual(
       await campaign.methods.funder().call(),
       accounts[0],
       'Account used for campaign contract deployment should be the funder'
@@ -43,9 +49,9 @@ describe('Kickstartethereum', () => {
   })
 
   it('sets minimum contribution', async () => {
-    assert.equal(
+    assert.strictEqual(
       await campaign.methods.minimumContribution().call(),
-      +100,
+      '100',
       'minimum contribution amount not properly set'
     )
   })
@@ -59,7 +65,7 @@ describe('Kickstartethereum', () => {
       await campaign.methods.backers(accounts[1]).call(),
       'Second account should be listed as backer'
     )
-    assert.equal(
+    assert.strictEqual(
       await web3.eth.getBalance(campaign.options.address),
       web3.utils.toWei('1', 'ether'),
       'Wrong campaign contract balance'
@@ -94,11 +100,11 @@ describe('Kickstartethereum', () => {
       complete,
       approvalsCount
     ] = Object.values(await campaign.methods.requests(0).call())
-    assert.equal(description, 'Test')
-    assert.equal(amount, '1000')
-    assert.equal(recipient, accounts[2])
+    assert.strictEqual(description, 'Test')
+    assert.strictEqual(amount, '1000')
+    assert.strictEqual(recipient, accounts[2])
     assert(!complete)
-    assert.equal(approvalsCount, 0)
+    assert.strictEqual(approvalsCount, '0')
   })
 
   it('fails to create payment request if not manager', async () => {
@@ -154,18 +160,18 @@ describe('Kickstartethereum', () => {
 
   it('can get campaign summary', async () => {
     const summary = await campaign.methods.getSummary().call()
-    assert.equal(
+    assert.strictEqual(
       Object.values(summary).length,
       5,
       'Should have returned summary of 5 values'
-  )
+    )
   })
 
   it('can get requests count', async () => {
     const count = await campaign.methods.getRequestsCount().call()
-    assert.equal(
+    assert.strictEqual(
       count,
-      +0,
+      '0',
       'Should be 0 requests created'
     )
   })
