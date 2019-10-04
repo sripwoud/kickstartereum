@@ -7,8 +7,8 @@ Sounds awesome.
 **A fundamental problem for crowdfunding is how asymmetrical the risks faced by backers and founders are.**  
 After having invested, backers don't get a say on how their money will actually be spent.
 Worse: which guarantee do they have that the founder they backed, will actually
-deliver what they promised, and not go away which the funds successfully collected from the backers?  
-Using Ethereum smart contract is a great way to come around such an issue: the campaign, collecting and spending funds get automated in a secure and a decentralized way.
+deliver what they promised, and not go away which the funds successfully collected from the backers?    
+Using Ethereum smart contract is a great way to come around such an issue: collecting and spending funds gets automated in a secure and a decentralized way.  
 The risks previously faced by backers disappear because they get to vote on how funds are spend.
 
 ## Requirements
