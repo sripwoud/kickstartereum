@@ -10,7 +10,8 @@ class CampaignNew extends Component {
   state = {
     minimumContribution: '',
     errorMessage: '',
-    loading: false
+    loading: false,
+    title: ''
   }
 
   onClick = async (event) => {
@@ -19,7 +20,7 @@ class CampaignNew extends Component {
     const accounts = await web3.eth.getAccounts()
     try {
       await factory.methods
-      .createCampaign(this.state.minimumContribution)
+      .createCampaign(this.state.minimumContribution, this.state.title)
       .send({ from: accounts[0] }) // no need to specify gas when using metamask (it does it for us)
 
       // re route user to root page
@@ -45,6 +46,13 @@ class CampaignNew extends Component {
               labelPosition='right'
               value={this.state.minimumContribution}
               onChange={event => this.setState({minimumContribution: event.target.value})}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Title</label>
+            <Input
+              value={this.state.title}
+              onChange={event => this.setState({title: event.target.value})}
             />
           </Form.Field>
           <Message
