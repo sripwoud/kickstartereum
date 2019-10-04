@@ -8,7 +8,7 @@ export default () => {
     <Menu style={{ marginTop: '10px' }}>
       <Link route='/'>
         <a className='item'>
-          AirCrowd
+          Kickstartereum
         </a>
       </Link>
       <Menu.Menu position='right'>

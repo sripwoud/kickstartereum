@@ -7,25 +7,28 @@ import { Link } from '../routes'
 
 class CampaignIndex extends Component {
   static async getInitialProps () {
-    let campaigns
-    try {
-      campaigns = await instance.methods.getDeployedCampaigns().call()
-    } catch (error) {
-      // fake data in case call tx fails
-      campaigns = ['132', '789']
-    }
+    const campaignsCount = await instance.methods.getCampaignsCount().call()
+    const campaigns = await Promise.all(
+      Array(+campaignsCount)
+        .fill()
+        .map((el, index) => {
+          return instance.methods.projects(index).call()
+        })
+    )
     return { campaigns }
   }
 
-  renderCampaigns = () => {
-    const items = this.props.campaigns.map(address => {
+  renderCampaigns () {
+    const items = this.props.campaigns.map(campaign => {
+      const { title, projectAddress } = campaign
       return {
-        header: `Address ${address}`,
+        header: title,
         description: (
-          <Link route={`/campaigns/${address}`}>
+          <Link route={`/campaigns/${projectAddress}`}>
             <a>View Campaign</a>
           </Link>
         ),
+        meta: `Address ${projectAddress}`,
         fluid: true
       }
     })
@@ -38,14 +41,14 @@ class CampaignIndex extends Component {
         <div>
           <h2>Open Campaigns</h2>
           <Link route='/campaigns/new'>
-          <a>
-            <Button
-              content='Create Campaign'
-              icon='add circle'
-              primary
-              floated='right'
-            />
-          </a>
+            <a>
+              <Button
+                content='Create Campaign'
+                icon='add circle'
+                primary
+                floated='right'
+              />
+            </a>
           </Link>
           {this.renderCampaigns()}
         </div>
