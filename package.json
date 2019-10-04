@@ -20,7 +20,6 @@
   "homepage": "https://github.com/6ry0u/airCrowd#readme",
   "dependencies": {
     "@truffle/hdwallet-provider": "1.0.18",
-    "a11y-react-emoji": "^1.1.1",
     "dotenv": "^8.1.0",
     "fs-extra": "^8.1.0",
     "ganache-cli": "^6.7.0",
