@@ -4,15 +4,16 @@
 designers, and other creators find the resources and support they need to make
 their ideas a reality. Potential future customers, 'backers', can contribute to a project to finance the development of a product.  
 Sounds awesome.  
-**A fundamental problem for crowdfunding is how asymmetrical the risks faced by backers and founders are.**  
+**However, a fundamental problem for crowdfunding is how asymmetrical the risks faced by backers and founders are.**  
 After having invested, backers don't get a say on how their money will actually be spent.
 Worse: which guarantee do they have that the founder they backed, will actually
 deliver what they promised, and not go away which the funds successfully collected from the backers?    
-Using Ethereum smart contract is a great way to come around such an issue: collecting and spending funds gets automated in a secure and a decentralized way.  
+Ethereum & smart contracts are a great solution to come around these issues. Indeed, the collecting of funds and spending of collected funds gets automated in a secure and a decentralized way.  
 The risks previously faced by backers disappear because they get to vote on how funds are spend.
+### [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
 
 ## Requirements
-This decentralized smart contract application fulfills the following:  
+The smart contract application I [deployed on the Ethereum Rinkeby test network](https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc) fulfills the following:  
 - [x] A founder can create a new campaign.
 He/she sets the minimum contribution amount for future backers.
 - [x] Anyone can back a created campaign, provided they contribute at least the
@@ -23,8 +24,8 @@ Neither the founder nor the backers are able to take out or spend funds collecte
 He requests the backers to agree on how to spend the campaign's funds.
 He specifies the payment's recipient.
 - [x] Backers can approve (1 time each) payment requests
-- [x] The founder can finalize a payment requests that has been approved by a majority of backers.
-This automatically execute the payment (transfers amount to recipient)
+- [x] The founder can finalize a payment request that has been approved by a majority of backers.
+This automatically executes the payment (transfers amount to recipient)
 ## Getting started
 1. Clone or download this repository
 0. Install dependencies: `/kicksartereum $ npm i`
