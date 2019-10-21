@@ -26,11 +26,18 @@ He specifies the payment's recipient.
 - [x] Backers can approve (1 time each) payment requests
 - [x] The founder can finalize a payment request that has been approved by a majority of backers.
 This automatically executes the payment (transfers amount to recipient)
+
 ## Getting started
 1. Clone or download this repository
 0. Install dependencies: `/kicksartereum $ npm i`
-1. Compile smart contract code: `/kicksartereum/ethereum$ node compile`
-2. Set environment variables required for deployment. Create a `.env` file in
+4. Run client application: `$ npm run dev`
+5. Access at [localhost:3001](http://localhost:3001/)
+
+## Development
+### Compile
+`/kicksartereum/ethereum$ node compile`
+### Deploy
+1. Set environment variables required for deployment. Create a `.env` file in
 `/ethereum` with the following lines:
 ```
 INFURA_KEY=<your infura project id>
@@ -38,10 +45,8 @@ MNEMONIC=<your metammask mnemonic>
 ```
 2. Deploy contract: `/kicksartereum/ethereum$ node deploy`
 3. Edit `ethereum/factory.js` and update the address (line 7)
-4. Run client application: `$ npm run dev`
-5. Access at [localhost:3001](http://localhost:3001/)
 
-## Tests
+### Tests
 `npm test`
 ## Resources
 - [Metamask](https://metamask.io/): 'brings Ethereum to your browser.''
