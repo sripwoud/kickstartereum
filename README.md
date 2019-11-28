@@ -1,4 +1,4 @@
-# Kicksartereum: Kickstarter on Ethereum
+# [Kicksartereum](https://kickstartereum.herokuapp.com/): Kickstarter on Ethereum
 ## Introduction
 [Kickstarter](https://www.kickstarter.com) helps artists, musicians, filmmakers,
 designers, and other creators find the resources and support they need to make
@@ -10,7 +10,9 @@ Worse: which guarantee do they have that the founder they backed, will actually
 deliver what they promised, and not go away which the funds successfully collected from the backers?    
 Ethereum & smart contracts are a great solution to come around these issues. Indeed, the collecting of funds and spending of collected funds gets automated in a secure and a decentralized way.  
 The risks previously faced by backers disappear because they get to vote on how funds are spend.
-### [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
+## [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
+
+## [Deployed application](https://kickstartereum.herokuapp.com/)
 
 ## Requirements
 The smart contract application I [deployed on the Ethereum Rinkeby test network](https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc) fulfills the following:  
@@ -56,3 +58,4 @@ MNEMONIC=<your metammask mnemonic>
 - [Semantic-ui](https://react.semantic-ui.com/): 'development framework that helps create beautiful, responsive layouts using human-friendly HTML.' Official React integration.
 - [Mocha](https://mochajs.org/): 'the fun, simple, flexible, JavaScript framework.'
 - [Ganache](https://www.trufflesuite.com/ganache): 'Quickly fire up a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.'
+- [Heroku](https://elements.heroku.com/buildpacks/mars/heroku-nextjs)
