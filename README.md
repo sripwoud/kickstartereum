@@ -1,4 +1,4 @@
-# [Kicksartereum](https://kickstartereum.herokuapp.com/): Kickstarter on Ethereum
+# Kicksartereum: Kickstarter on Ethereum
 ## Introduction
 [Kickstarter](https://www.kickstarter.com) helps artists, musicians, filmmakers,
 designers, and other creators find the resources and support they need to make
@@ -13,6 +13,7 @@ The risks previously faced by backers disappear because they get to vote on how 
 ## [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
 
 ## [Deployed application](https://kickstartereum.herokuapp.com/)
+You must install [Metamask](https://metamask.io/) first! Otherwise the app will crash (because I don't handle the error of not having a web3 provider injected in the browser yet, sorry ^^).
 
 ## Requirements
 The smart contract application I [deployed on the Ethereum Rinkeby test network](https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc) fulfills the following:  
