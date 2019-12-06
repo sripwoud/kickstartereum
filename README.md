@@ -11,10 +11,7 @@ deliver what they promised, and not go away which the funds successfully collect
 Ethereum & smart contracts are a great solution to come around these issues. Indeed, the collecting of funds and spending of collected funds gets automated in a secure and a decentralized way.  
 The risks previously faced by backers disappear because they get to vote on how funds are spend.
 ## [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
-
-## [Deployed application](https://kickstartereum.herokuapp.com/)
-You must install [Metamask](https://metamask.io/) first! Otherwise the app will crash (because I don't handle the error of not having a web3 provider injected in the browser yet, sorry ^^).
-
+## [Deployed application](https://kickstartereum.herokuapp.com/)([Heroku Dyno](https://www.heroku.com/dynos))
 ## Requirements
 The smart contract application I [deployed on the Ethereum Rinkeby test network](https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc) fulfills the following:  
 - [x] A founder can create a new campaign.
