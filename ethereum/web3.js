@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 
 let web3
-if (typeof window !== 'undefined' && window.ethereum !== 'undefined') {
+if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
   /* We are in the browser & Metamask is installed:
   Ethereum user detected. You can now use the provider. */
   const provider = window.ethereum
