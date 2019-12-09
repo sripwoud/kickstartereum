@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Divider } from 'semantic-ui-react'
+import { Menu, Divider, Segment } from 'semantic-ui-react'
 
 import { Link } from '../routes' // doesn't add HTML anchor tag, just wraps children with a click event handler
 
@@ -26,13 +26,17 @@ export default () => {
         </Menu.Menu>
       </Menu>
       <Divider horizontal>
-        <a hreh='https://metamask.io/'>
-          🦊 Metamask {' '}
-        </a>
-        is required to use this app
-        <a href='https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc'>
-          {' '}(Rinkeby network) 🦊
-        </a>
+        <Segment basic textAlign='center'>
+          <a hreh='https://metamask.io/'>
+            🦊 Metamask 🦊
+          </a>
+          <br />
+          is required to use this app
+          <br />
+          <a href='https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc'>
+            (Rinkeby network)
+          </a>
+        </Segment>
       </Divider>
     </>
   )
