@@ -1,4 +1,5 @@
 import Web3 from 'web3'
+// require('dotenv').config()
 
 let web3
 if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
@@ -10,8 +11,9 @@ if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
 } else {
   /* We are not in the browser (server side rendering)
   or user is not running Metamask */
-  const provider = new Web3.providers.HttpProvider(`https://rinkeby.infura.io/${process.env.INFURA_KEY}`)
+  const provider = new Web3.providers.HttpProvider(`https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`)
   web3 = new Web3(provider)
+  // console.log(provider)
 }
 
 export default web3
