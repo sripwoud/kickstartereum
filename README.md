@@ -31,7 +31,7 @@ This automatically executes the payment (transfers amount to recipient)
 1. Clone or download this repository
 0. Install dependencies: `/kicksartereum $ npm i`
 4. Run client application: `$ npm run dev`
-5. Access at [localhost:3001](http://localhost:3001/)
+5. Access at [localhost:3000](http://localhost:3000/)
 
 ## Development
 ### Compile
