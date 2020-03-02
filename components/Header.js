@@ -27,13 +27,13 @@ export default () => {
       </Menu>
       <Divider horizontal>
         <Segment basic textAlign='center'>
-          <a hreh='https://metamask.io/'>
+          <a href='https://metamask.io/' target='_blank'>
             🦊 Metamask 🦊
           </a>
           <br />
           is required to use this app
           <br />
-          <a href='https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc'>
+          <a href='https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc' target='_blank'>
             (Rinkeby network)
           </a>
         </Segment>
