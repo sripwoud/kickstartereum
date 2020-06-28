@@ -17,6 +17,7 @@ export default props => {
           rel='stylesheet'
           href='//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'
         />
+        <title>Kickstartereum</title>
       </Head>
       <Header />
       {props.children}
