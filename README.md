@@ -1,4 +1,5 @@
 # Kicksartereum: Kickstarter on Ethereum
+![screenshot](./Screenshot.png)
 ## Introduction
 [Kickstarter](https://www.kickstarter.com) helps artists, musicians, filmmakers,
 designers, and other creators find the resources and support they need to make
@@ -11,7 +12,6 @@ deliver what they promised, and not go away which the funds successfully collect
 Ethereum & smart contracts are a great solution to come around these issues. Indeed, the collecting of funds and spending of collected funds gets automated in a secure and a decentralized way.  
 The risks previously faced by backers disappear because they get to vote on how funds are spend.
 ## [Demo video](https://www.youtube.com/watch?v=yJyEVvW6MI4)
-## [Live application](https://kickstartereum.herokuapp.com/) (deployed on a [Heroku Dyno](https://www.heroku.com/dynos))
 ## Requirements
 The smart contract application I [deployed on the Ethereum Rinkeby test network](https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc) fulfills the following:  
 - [x] A founder can create a new campaign.
