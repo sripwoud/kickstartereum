@@ -3,6 +3,5 @@ node_modules/
 .next/
 ADDRESS
 .vercel
-ethereum/build/
 .idea
 

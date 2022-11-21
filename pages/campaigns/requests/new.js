@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Message, Input, Icon } from 'semantic-ui-react'
+import { Button, Form, Icon, Input, Message } from 'semantic-ui-react'
 
 import Campaign from '../../../ethereum/campaign'
 import web3 from '../../../ethereum/web3'
@@ -12,10 +12,10 @@ class NewRequest extends Component {
     description: '',
     recipient: '',
     loading: false,
-    errorMessage: ''
+    errorMessage: '',
   }
 
-  static async getInitialProps (props) {
+  static async getInitialProps(props) {
     const { address } = props.query
     return { address }
   }
@@ -37,8 +37,8 @@ class NewRequest extends Component {
     this.setState({ loading: false })
   }
 
-  render () {
-    return(
+  render() {
+    return (
       <Layout>
         <Link route={`/campaigns/${this.props.address}/requests`}>
           <a>
@@ -47,15 +47,14 @@ class NewRequest extends Component {
           </a>
         </Link>
         <h2>Create a new payment request</h2>
-        <Form
-          onSubmit={this.onSubmit}
-          error={!!this.state.errorMessage}
-        >
+        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
             <label>Description</label>
             <Input
               value={this.state.description}
-              onChange={(event) => this.setState({ description: event.target.value })}
+              onChange={(event) =>
+                this.setState({ description: event.target.value })
+              }
             />
           </Form.Field>
           <Form.Field>
@@ -69,15 +68,15 @@ class NewRequest extends Component {
             <label>Recipient (address)</label>
             <Input
               value={this.state.recipient}
-              onChange={(event) => this.setState({ recipient: event.target.value })}
+              onChange={(event) =>
+                this.setState({ recipient: event.target.value })
+              }
             />
           </Form.Field>
-          <Message
-            error
-            header='Ooops'
-            content={this.state.errorMessage}
-          />
-          <Button primary loading={this.state.loading}>Create</Button>
+          <Message error header='Ooops' content={this.state.errorMessage} />
+          <Button primary loading={this.state.loading}>
+            Create
+          </Button>
         </Form>
       </Layout>
     )

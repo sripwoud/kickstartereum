@@ -7,8 +7,8 @@ const path = require('path')
 const { abi, evm: { bytecode: { object: bytecode } } } = require('./build/CampaignFactory.json')
 
 const provider = new HDWalletProvider(
-  process.env.MNEMONIC,
-  `https://rinkeby.infura.io/${process.env.INFURA_KEY}`
+  process.env.PRIVATE_KEY,
+  `https://goerli.infura.io/v3/${process.env.INFURA_KEY}`,
 )
 const web3 = new Web3(provider)
 // define function so that we can use await/async syntax (optional)
