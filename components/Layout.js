@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 
-export default props => {
+export default (props) => {
   return (
     <Container>
       <Head>
@@ -15,10 +15,7 @@ export default props => {
           content='https://6ry0u.surge.sh/portfolio/kickstartereum.png'
         />
         <meta property='og:description' content='Kickstarter on Ethereum' />
-        <meta
-          property='og:url'
-          content='https://kickstartereum.herokuapp.com/'
-        />
+        <meta property='og:url' content='https://kickstartereum.vercel.app' />
         <meta
           name='keywords'
           content='Ethereum , Solidity, Smart Contract, Dapp, Kickstarter'
