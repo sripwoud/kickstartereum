@@ -1,46 +1,46 @@
 import React, { Component } from 'react'
 import instance from '../ethereum/factory'
-import { Card, Button } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react'
 
 import Layout from '../components/Layout'
 import { Link } from '../routes'
 
 class CampaignIndex extends Component {
-  static async getInitialProps () {
+  static async getInitialProps() {
     const campaignsCount = await instance.methods.getCampaignsCount().call()
     const campaigns = await Promise.all(
       Array(+campaignsCount)
         .fill()
         .map((el, index) => {
           return instance.methods.projects(index).call()
-        })
+        }),
     )
     return { campaigns }
   }
 
-  renderCampaigns () {
-    const items = this.props.campaigns.map(campaign => {
+  renderCampaigns() {
+    const items = this.props.campaigns.map((campaign) => {
       const { title, projectAddress } = campaign
       return {
         header: title,
         description: (
-          <Link route={`/campaigns/${projectAddress}`}>
+          <Link legacyBehavior route={`/campaigns/${projectAddress}`}>
             <a>View Campaign</a>
           </Link>
         ),
         meta: `Address ${projectAddress}`,
-        fluid: true
+        fluid: true,
       }
     })
     return <Card.Group items={items} />
   }
 
-  render () {
+  render() {
     return (
       <Layout>
         <div>
           <h2>Open Campaigns</h2>
-          <Link route='/campaigns/new'>
+          <Link legacyBehavior route='/campaigns/new'>
             <a>
               <Button
                 content='Create Campaign'

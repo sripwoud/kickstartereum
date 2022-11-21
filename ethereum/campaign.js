@@ -6,7 +6,7 @@ export default (address) => {
   return (
     new web3.eth.Contract(
       Campaign.abi,
-      address
+      address,
     )
   )
 }

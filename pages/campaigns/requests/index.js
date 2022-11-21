@@ -7,7 +7,7 @@ import Campaign from '../../../ethereum/campaign'
 import RequestRow from '../../../components/RequestRow'
 
 class RequestsIndex extends Component {
-  static async getInitialProps (props) {
+  static async getInitialProps(props) {
     const { address } = props.query
     const campaign = Campaign(address)
     const requestsCount = await campaign.methods.getRequestsCount().call()
@@ -17,13 +17,13 @@ class RequestsIndex extends Component {
         .fill()
         .map((el, index) => {
           return campaign.methods.requests(index).call()
-        })
+        }),
     )
 
     return { address, requests, backersCount, requestsCount }
   }
 
-  renderRows () {
+  renderRows() {
     return this.props.requests.map((request, index) => {
       return (
         <RequestRow
@@ -37,12 +37,15 @@ class RequestsIndex extends Component {
     })
   }
 
-  render () {
+  render() {
     const { Header, Row, HeaderCell, Body } = Table
     return (
       <Layout>
         <h2>Requests</h2>
-        <Link route={`/campaigns/${this.props.address}/requests/new`}>
+        <Link
+          legacyBehavior
+          route={`/campaigns/${this.props.address}/requests/new`}
+        >
           <a>
             <Button primary floated='right' style={{ marginBottom: 10 }}>
               Add request
@@ -61,9 +64,7 @@ class RequestsIndex extends Component {
               <HeaderCell>Finalize</HeaderCell>
             </Row>
           </Header>
-          <Body>
-            {this.renderRows()}
-          </Body>
+          <Body>{this.renderRows()}</Body>
         </Table>
         <div>Total: {this.props.requestsCount} payment requests.</div>
       </Layout>

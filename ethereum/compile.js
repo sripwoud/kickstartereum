@@ -12,16 +12,16 @@ const input = {
   language: 'Solidity',
   sources: {
     'Campaign.sol': {
-      content: source
-    }
+      content: source,
+    },
   },
   settings: {
     outputSelection: {
       '*': {
-        '*': ['*']
-      }
-    }
-  }
+        '*': ['*'],
+      },
+    },
+  },
 }
 
 const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts['Campaign.sol']
@@ -32,6 +32,6 @@ for (const contract in output) {
   // create an output JSON file from an object
   fs.outputJsonSync(
     path.resolve(buildPath, `${contract}.json`),
-    output[contract]
+    output[contract],
   )
 }
