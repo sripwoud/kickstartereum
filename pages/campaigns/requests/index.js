@@ -42,7 +42,10 @@ class RequestsIndex extends Component {
     return (
       <Layout>
         <h2>Requests</h2>
-        <Link route={`/campaigns/${this.props.address}/requests/new`}>
+        <Link
+          legacyBehavior
+          route={`/campaigns/${this.props.address}/requests/new`}
+        >
           <a>
             <Button primary floated='right' style={{ marginBottom: 10 }}>
               Add request

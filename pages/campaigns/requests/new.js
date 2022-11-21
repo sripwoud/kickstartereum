@@ -40,7 +40,10 @@ class NewRequest extends Component {
   render() {
     return (
       <Layout>
-        <Link route={`/campaigns/${this.props.address}/requests`}>
+        <Link
+          legacyBehavior
+          route={`/campaigns/${this.props.address}/requests`}
+        >
           <a>
             <Icon name='left arrow' />
             Back
