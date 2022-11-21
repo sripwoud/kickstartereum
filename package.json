@@ -8,7 +8,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "compile": "cd ethereum && node compile"
+    "compile": "cd ethereum && node compile",
+    "deploy": "cd ethereum && node deploy"
   },
   "repository": {
     "type": "git",
