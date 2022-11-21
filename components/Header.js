@@ -28,7 +28,7 @@ export default () => {
           is required to use this app
           <br />
           <a
-            href='https://rinkeby.etherscan.io/address/0x1eb0ef281158ebccacf097e02111f3ab9e0743cc'
+            href='https://goerli.etherscan.io/address/0x4308bfd6c6Cd829B6D342C90b43bEF46700Cec8D'
             target='_blank'
           >
             (Goerli network)
