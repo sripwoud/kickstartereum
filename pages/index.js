@@ -32,7 +32,11 @@ class CampaignIndex extends Component {
         fluid: true,
       }
     })
-    return <Card.Group items={items} />
+    return items.length ? (
+      <Card.Group items={items} />
+    ) : (
+      <div style={{ height: '100px' }}></div>
+    )
   }
 
   render() {
