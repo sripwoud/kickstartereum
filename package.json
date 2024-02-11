@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/r1oga/kickstartereum.git"
+    "url": "git+https://github.com/sripwoud/kickstartereum.git"
   },
-  "author": "r1oga",
-  "license": "ISC",
-  "homepage": "https://github.com/r1oga/kickstartereum#readme",
+  "author": "sripwoud",
+  "license": "AGPL-3.0",
+  "homepage": "https://github.com/sripwoud/kickstartereum#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
     "next": "^13.0.4",

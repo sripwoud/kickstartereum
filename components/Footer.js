@@ -13,12 +13,12 @@ export default () => {
       with {' '}
           <Icon name='like' color='red' padding='10px' />
       by
-          <a href='https://github.com/r1oga' target='_blank'>
-            @r1oga
+          <a href='https://sripwoud.xyz' target='_blank'>
+            sripwoud
           </a>
         </p>
         <p>
-          <a href='https://github.com/r1oga/kickstartereum' target='_blank'>
+          <a href='https://github.com/sripwoud/kickstartereum' target='_blank'>
             <Icon name='github' size='large' color='black' />
           </a>
         </p>
