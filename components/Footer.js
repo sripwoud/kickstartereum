@@ -12,7 +12,7 @@ export default () => {
           </a>
       with {' '}
           <Icon name='like' color='red' padding='10px' />
-      by
+      by {' '}
           <a href='https://sripwoud.xyz' target='_blank'>
             sripwoud
           </a>
